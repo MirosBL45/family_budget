@@ -35,12 +35,18 @@ form.addEventListener("submit", (e) => {
     values[input.dataset.key] = (salary * Number(input.value)) / 100;
   });
 
+  resultDiv.classList.remove("show");
+
   resultDiv.innerHTML = `
-    Od plate <strong>${salary.toLocaleString()} RSD</strong>:<br />
-    • Na račune ide <strong>${values.racuni.toLocaleString()} RSD</strong><br />
-    • Na hranu ide <strong>${values.hrana.toLocaleString()} RSD</strong><br />
-    • Na putovanja ide <strong>${values.putovanja.toLocaleString()} RSD</strong><br />
-    • Za kućni budžet ide <strong>${values.kuca.toLocaleString()} RSD</strong><br />
-    • Za ličnu štednju ide <strong>${values.licno.toLocaleString()} RSD</strong>
-  `;
+  Od plate <strong>${salary.toLocaleString()} RSD</strong>:<br />
+  • Na račune ide <strong>${values.racuni.toLocaleString()} RSD</strong><br />
+  • Na hranu ide <strong>${values.hrana.toLocaleString()} RSD</strong><br />
+  • Na putovanja ide <strong>${values.putovanja.toLocaleString()} RSD</strong><br />
+  • Za kućni budžet ide <strong>${values.kuca.toLocaleString()} RSD</strong><br />
+  • Za ličnu štednju ide <strong>${values.licno.toLocaleString()} RSD</strong>
+`;
+
+  requestAnimationFrame(() => {
+    resultDiv.classList.add("show");
+  });
 });

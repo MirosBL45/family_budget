@@ -33,6 +33,7 @@ label {
 input {
   padding: 0.6rem;
   font-size: 1rem;
+  border-radius: 0.7rem;
 }
 
 .percent-grid {
@@ -46,10 +47,11 @@ button {
   padding: 0.8rem;
   font-size: 1rem;
   margin-top: 1rem;
-  background: #2b7cff;
+  background: #0eda41;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 1rem;
 }
 
 button:disabled {
@@ -77,4 +79,33 @@ button:disabled {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
+}
+
+
+/* Card wrapper */
+.card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Result animation */
+.result {
+  margin-top: 1.5rem;
+  background: #fdfdfd;
+  padding: 1rem;
+  border-radius: 10px;
+  line-height: 1.6;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.35s ease;
+}
+
+.result.show {
+  opacity: 1;
+  transform: translateY(0);
 }
