@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porodični budžet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Porodični budžet</h1>
+
+    <form id="budgetForm">
+      <!-- Plata -->
+      <div class="field">
+        <label for="salary">Plata (RSD)</label>
+        <input type="number" id="salary" placeholder="npr. 170000" min="0" />
+      </div>
+
+      <!-- Procenti -->
+      <div class="percent-grid">
+        <div class="field">
+          <label>Računi (%)</label>
+          <input type="number" class="percent" data-key="racuni" min="0" max="100" />
+        </div>
+
+        <div class="field">
+          <label>Hrana (%)</label>
+          <input type="number" class="percent" data-key="hrana" min="0" max="100" />
+        </div>
+
+        <div class="field">
+          <label>Putovanja (%)</label>
+          <input type="number" class="percent" data-key="putovanja" min="0" max="100" />
+        </div>
+
+        <div class="field">
+          <label>Kućni budžet (%)</label>
+          <input type="number" class="percent" data-key="kuca" min="0" max="100" />
+        </div>
+
+        <div class="field">
+          <label>Lična štednja (%)</label>
+          <input type="number" class="percent" data-key="licno" min="0" max="100" />
+        </div>
+      </div>
+
+      <p id="percentInfo">Ukupno: 0%</p>
+
+      <button type="submit" id="calculateBtn" disabled>
+        Izračunaj
+      </button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
