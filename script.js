@@ -5,6 +5,15 @@ const calculateBtn = document.getElementById("calculateBtn");
 const resultDiv = document.getElementById("result");
 const form = document.getElementById("budgetForm");
 
+function formatNumber(value) {
+  return value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function unformatNumber(value) {
+  return value.replace(/\./g, "");
+}
+
+
 function getTotalPercent() {
   let total = 0;
   percentInputs.forEach((input) => {
@@ -23,12 +32,25 @@ percentInputs.forEach((input) => {
   input.addEventListener("input", updateButtonState);
 });
 
-salaryInput.addEventListener("input", updateButtonState);
+salaryInput.addEventListener("input", (e) => {
+  let rawValue = unformatNumber(e.target.value);
+
+  // dozvoli samo brojeve
+  rawValue = rawValue.replace(/\D/g, "");
+
+  const formatted = formatNumber(rawValue);
+
+  e.target.value = formatted;
+
+  updateButtonState();
+});
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const salary = Number(salaryInput.value);
+  const salary = Number(unformatNumber(salaryInput.value));
+
   const values = {};
 
   percentInputs.forEach((input) => {
